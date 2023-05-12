@@ -9,7 +9,7 @@
       </div>
     </section>
     <NewVacancy @save="handlerSubmit" />
-    <VacancyComp v-for='vacancy in vacancies' :key="vacancy.id" :vacancy='vacancy' @delete='deleteHandler'  />
+    <VacancyComp v-for='vacancy in vacancies' :key="vacancy.id" :vacancy='vacancy' @delete='deleteHandler' @apply='applyHandler' />
   </div>
 </template>
 
@@ -41,6 +41,11 @@ export default {
       console.log(vacancyId);
 
       this.vacancies = this.vacancies.filter( vacancy => vacancy.id !== vacancyId )
+
+    },
+    applyHandler(title){
+      console.log("Title", title);
+      alert(`Thank You for Applying ${title}`)
 
     }
   }

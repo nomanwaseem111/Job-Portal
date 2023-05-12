@@ -8,7 +8,7 @@
      {{vacancy.description}}
     </p>
     <div class="is-flex is-justify-content-space-between">
-        <button class="button is-primary mt-4" >Apply</button>
+        <button class="button is-primary mt-4" @click='applyHandler(vacancy)' >Apply</button>
     <button class="button is-danger mt-4" @click='deleteHandler(vacancy)'>Delete</button>
     </div>
 
@@ -32,6 +32,9 @@ export default {
 
       this.$emit('delete',vacancy.id )
        
+     },
+     applyHandler(vacancy){
+      this.$emit('apply',vacancy.title)
      }
   }
 };
